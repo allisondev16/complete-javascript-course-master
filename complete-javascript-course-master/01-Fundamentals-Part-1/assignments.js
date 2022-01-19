@@ -53,5 +53,25 @@ language = 'English'
 // Test data:
 // § Data 1: Marks weights 78 kg and is 1.69 m tall. John weights 92 kg and is 1.95
 // m tall.
+const massMark = 78
+const heightMark = 1.69
+const massJohn = 92
+const heightJohn = 1.95
+
+const calculateBMI = (mass, height) => {
+    return mass / height ** 2
+}
+
+const markBMI = calculateBMI(massMark, heightMark)
+const johnBMI = calculateBMI(massJohn, heightMark)
+
+const markHigherBMI = markBMI > johnBMI
+
 // § Data 2: Marks weights 95 kg and is 1.88 m tall. John weights 85 kg and is 1.76
 // m tall.
+
+const markBMI = calculateBMI(95, 1.88)
+const johnBMI = calculateBMI(85, 1.76)
+
+const markHigherBMI = markBMI > johnBMI
+
