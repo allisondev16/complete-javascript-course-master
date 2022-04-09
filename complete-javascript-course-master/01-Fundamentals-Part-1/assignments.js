@@ -6,7 +6,7 @@
 
 const country = "Philippines"
 const continent = "Asia"
-let population = 109.6
+let population = 13
 
 console.log(country)
 console.log(continent)
@@ -130,4 +130,12 @@ if (markHigherBMI) {
 // 2. After checking the result, change the population temporarily to 13 and then to
 // 130. See the different results, and set the population back to original
 
-// to answer
+if (population > 33) {
+    console.log(`${country}'s population is above average`)
+} else {
+    console.log(`${country}'s population is ${33 - population} below average`);
+}
+
+let value = 1
+console.log('value', value++);
+
