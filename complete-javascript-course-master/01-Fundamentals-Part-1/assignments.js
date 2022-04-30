@@ -228,10 +228,14 @@ if (language === "English" && population < 50 && !isIsland) {
 // § Data Bonus 2: Dolphins score 97, 112 and 101. Koalas score 109, 95 and 106
 // GOOD LUCK �
 
-const aveDolphins = (96 + 108 + 89) / 3
-const aveKoalas = (88 + 91 + 110) / 3
+// const aveDolphins = (96 + 108 + 89) / 3
+// const aveKoalas = (88 + 91 + 110) / 3
 
-// => try data of bonus 1 and 2
+// const aveDolphins = (97 + 112 + 101) / 3
+// const aveKoalas = (109 + 95 + 123) / 3
+
+const aveDolphins = (97 + 112 + 101) / 3
+const aveKoalas = (109 + 95 + 106) / 3
 
 
 if (aveDolphins > aveKoalas && aveDolphins >= 100) {
@@ -246,3 +250,20 @@ if (aveDolphins > aveKoalas && aveDolphins >= 100) {
 
 
 
+// Lecture 26
+
+const day = 'monday';
+
+if (day === 'monday') {
+    console.log("Monday");
+} else if (day === 'tuesday') {
+    console.log("Tuesday");
+} else if (day === 'wednesday' || day === 'thurdsay') {
+    console.log("Wednesday/Thursday");
+} else if (day === 'friday') {
+    console.log("Friday");
+} else if (day === 'saturday' || day === 'sunday') {
+    console.log("Weekend");
+} else {
+    console.log("Not a valid day");
+}
