@@ -17,3 +17,49 @@ const korea = describeCountry("South Korea", 51.78, "Seoul");
 console.log(philippines);
 console.log(japan);
 console.log(korea);
+
+// LECTURE: Function Declarations vs. Expressions
+// 1. The world population is 7900 million people. Create a function declaration
+// called 'percentageOfWorld1' which receives a 'population' value, and
+// returns the percentage of the world population that the given population
+// represents. For example, China has 1441 million people, so it's about 18.2% of
+// the world population
+// 2. To calculate the percentage, divide the given 'population' value by 7900
+// and then multiply by 100
+// 3. Call 'percentageOfWorld1' for 3 populations of countries of your choice,
+// store the results into variables, and log them to the console
+// 4. Create a function expression which does the exact same thing, called
+// 'percentageOfWorld2', and also call it with 3 country populations (can be
+// the same populations)
+
+function percentageOfWorld1(population) {
+    return population / 7900 * 100;
+}
+
+const chinaPercentage = percentageOfWorld1(1441);
+const philippinesPercentage = percentageOfWorld1(109.6);
+const koreaPercentage = percentageOfWorld1(51.8);
+
+console.log(chinaPercentage, philippinesPercentage, koreaPercentage);
+
+const percentageOfWorld2 = function (population) {
+    return population / 7900 * 100;
+}
+
+const chinaPercentage2 = percentageOfWorld2(1441);
+const philippinesPercentage2 = percentageOfWorld2(109.6);
+const koreaPercentage2 = percentageOfWorld2(51.8);
+
+console.log(chinaPercentage2, philippinesPercentage2, koreaPercentage2);
+
+// LECTURE: Arrow Functions
+// 1. Recreate the last assignment, but this time create an arrow function called 
+// 'percentageOfWorld3'
+
+const percentageOfWorld3 = population => population / 7900 * 100;
+
+const chinaPercentage3 = percentageOfWorld3(1441);
+const philippinesPercentage3 = percentageOfWorld3(109.6);
+const koreaPercentage3 = percentageOfWorld3(51.8);
+
+console.log(chinaPercentage3, philippinesPercentage3, koreaPercentage3);
