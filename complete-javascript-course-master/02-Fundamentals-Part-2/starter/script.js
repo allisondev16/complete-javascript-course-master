@@ -109,6 +109,31 @@ console.log(describePopulation("South Korea", 51.78));
 
 // 1.
 
-const calcAvarage = () => {
-
+const calcAvarage = (score1, score2, score3) => {
+    return (score1 + score2 + score3) / 3;
 }
+
+// 2.
+// Data 1:
+// avgDolphins = calcAvarage(44, 23, 71);
+// avgKoalas = calcAvarage(65, 54, 49);
+
+// Data 2:
+avgDolphins = calcAvarage(85, 54, 41);
+avgKoalas = calcAvarage(23, 34, 27);
+
+// 3.
+
+const checkWinner = (avgDolphins, avgKoalas) => {
+    if (avgKoalas >= avgDolphins * 2) {
+        console.log(`Koalas wins (${avgKoalas} vs. ${avgDolphins})`);
+    } else if (avgDolphins >= avgKoalas * 2) {
+        console.log(`Dolphins wins (${avgDolphins} vs. ${avgKoalas})`);
+    } else {
+        console.log("No team wins");
+    }
+}
+
+// 4.
+
+checkWinner(avgDolphins, avgKoalas);
