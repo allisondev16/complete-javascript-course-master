@@ -115,12 +115,8 @@ const calcAvarage = (score1, score2, score3) => {
 
 // 2.
 // Data 1:
-// avgDolphins = calcAvarage(44, 23, 71);
-// avgKoalas = calcAvarage(65, 54, 49);
-
-// Data 2:
-avgDolphins = calcAvarage(85, 54, 41);
-avgKoalas = calcAvarage(23, 34, 27);
+let avgDolphins = calcAvarage(44, 23, 71);
+let avgKoalas = calcAvarage(65, 54, 49);
 
 // 3.
 
@@ -137,3 +133,22 @@ const checkWinner = (avgDolphins, avgKoalas) => {
 // 4.
 
 checkWinner(avgDolphins, avgKoalas);
+
+// Data 2:
+avgDolphins = calcAvarage(85, 54, 41);
+avgKoalas = calcAvarage(23, 34, 27);
+
+checkWinner(avgDolphins, avgKoalas);
+
+// LECTURE: Introduction to Arrays
+// 1. Create an array containing 4 population values of 4 countries of your choice. 
+// You may use the values you have been using previously. Store this array into a 
+// variable called 'populations'
+// 2. Log to the console whether the array has 4 elements or not (true or false)
+// 3. Create an array called 'percentages' containing the percentages of the 
+// world population for these 4 population values. Use the function 
+// 'percentageOfWorld1' that you created earlier to compute the 4 
+// percentage values
+
+// 1.
+const populations = []
