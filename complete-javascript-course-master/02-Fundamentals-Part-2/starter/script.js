@@ -151,4 +151,14 @@ checkWinner(avgDolphins, avgKoalas);
 // percentage values
 
 // 1.
-const populations = []
+const populations = [1441, 109.6, 51.78, 125.8];
+
+// 2.
+console.log(populations.length === 4);
+// true
+
+// 3.
+const percentages = [percentageOfWorld1(populations[0]), percentageOfWorld1(populations[1]), percentageOfWorld1(populations[2]), percentageOfWorld1(populations[3])];
+
+console.log(percentages);
+
