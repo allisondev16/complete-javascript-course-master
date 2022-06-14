@@ -244,3 +244,15 @@ const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
 const total = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]]
 console.log(total);
 
+// LECTURE: Introduction to Objects
+// 1. Create an object called 'myCountry' for a country of your choice, containing 
+// properties 'country', 'capital', 'language', 'population' and 
+// 'neighbours' (an array like we used in previous assignments)
+
+const myCountry = {
+    country: "Philippines",
+    capital: "Manila",
+    language: "Filipino",
+    population: 109.6,
+    neighbors: neighbours
+}
