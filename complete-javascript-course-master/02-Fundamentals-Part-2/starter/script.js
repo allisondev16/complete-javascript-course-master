@@ -258,12 +258,58 @@ const myCountry = {
 }
 
 // Dot vs. Bracket Notation
+// const jonas = {
+//     firstName: 'Jonas',
+//     lastName: 'Schmedtmann',
+//     age: 2037 - 1991,
+//     job: 'teacher',
+//     friends: ['Michael', 'Peter', 'Steven']
+// };
+
+// console.log(`${jonas.firstName} has ${jonas.friends.length} friends, and his best friend is called ${jonas.friends[0]}`);
+
+// LECTURE: Dot vs. Bracket Notation
+// 1. Using the object from the previous assignment, log a string like this to the 
+// console: 'Finland has 6 million finnish-speaking people, 3 neighbouring countries 
+// and a capital called Helsinki.'
+// 2. Increase the country's population by two million using dot notation, and then 
+// decrease it by two million using brackets notation.
+
+// 1.
+console.log(`${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry.neighbors.length} neighbouring countries and a capital called ${myCountry.capital}.`);
+
+// 2.
+myCountry.population += 2;
+console.log(myCountry.population);
+
+myCountry['population'] -= 2;
+console.log(myCountry['population']);
+
+///////////////////////////////////////
+// Object Methods
 const jonas = {
     firstName: 'Jonas',
     lastName: 'Schmedtmann',
-    age: 2037 - 1991,
+    birthYeah: 1991,
     job: 'teacher',
-    friends: ['Michael', 'Peter', 'Steven']
-};
+    friends: ['Michael', 'Peter', 'Steven'],
+    hasDriversLicense: true,
 
-console.log(`${jonas.firstName} has ${jonas.friends.length} friends, and his best friend is called ${jonas.friends[0]}`);
+    // calcAge: function (birthYeah) {
+    //   return 2037 - birthYeah;
+    // }
+
+    // calcAge: function () {
+    //   // console.log(this);
+    //   return 2037 - this.birthYeah;
+    // }
+
+    calcAge: function () {
+        this.age = 2037 - this.birthYeah;
+        return this.age;
+    },
+    getSummary: function () {
+        return `${this.firstName} is a ${this.calcAge()}-year old ${this.job}, and he has ${this.hasDriversLicense ? "a" : "no"} driver's license`
+    }
+}
+console.log(jonas.getSummary());
