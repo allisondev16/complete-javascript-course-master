@@ -355,8 +355,18 @@ const john = {
 
 // 3.
 
-console.log(`${john.fullname}'s BMI (${john.calcBMI()}) is ${john.BMI > mark.BMI ? "higher" : "lower"} than ${mark.fullname}'s (${mark.calcBMI()})!`);
+// console.log(`${john.fullname}'s BMI (${john.calcBMI()}) is ${john.BMI > mark.BMI ? "higher" : "lower"} than ${mark.fullname}'s (${mark.calcBMI()})!`);
 
-console.log(92 / 1.95 ** 2);
+mark.calcBMI();
+john.calcBMI();
+
+if (john.BMI > mark.BMI) {
+    console.log(`${john.fullname}'s BMI (${john.BMI}) is higher than ${mark.fullname}'s (${mark.BMI})!`);
+} else if {
+    console.log(`${mark.fullname}'s BMI (${mark.BMI}) is higher than ${john.fullname}'s (${john.BMI})!`);
+}
+
+
+
 
 
