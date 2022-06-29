@@ -438,3 +438,15 @@ console.log(percentages2);
 const listOfNeighbours = [['Canada', 'Mexico'], ['Spain'], ['Norway', 'Sweden', 'Russia']];
 
 // 2.
+
+for (let i = 0; i < listOfNeighbours.length; i++) {
+    for (let i = 0; i < listOfNeighbours[i].length; i++) {
+        const neighbours = [];
+        for (let j = 0; j < listOfNeighbours[i].length && j !== i; j++) {
+            neighbours.push(listOfNeighbours[i][j])
+        }
+        console.log(neighbours);
+    };
+}
+
+console.log(`Neighbour: ${listOfNeighbours[i][1] ? listOfNeighbours[i][1] : "None"}`);
