@@ -440,13 +440,20 @@ const listOfNeighbours = [['Canada', 'Mexico'], ['Spain'], ['Norway', 'Sweden', 
 // 2.
 
 for (let i = 0; i < listOfNeighbours.length; i++) {
-    for (let i = 0; i < listOfNeighbours[i].length; i++) {
+    for (let k = 0; k < listOfNeighbours[i].length; k++) {
+
         const neighbours = [];
-        for (let j = 0; j < listOfNeighbours[i].length && j !== i; j++) {
-            neighbours.push(listOfNeighbours[i][j])
+        for (let j = 0; j < listOfNeighbours[i].length; j++) {
+            if (j !== k) {
+                neighbours.push(listOfNeighbours[i][j])
+            }
         }
-        console.log(neighbours);
+
+        console.log(`Neighbours of ${listOfNeighbours[i][k]}: ${neighbours}`);
     };
 }
 
-console.log(`Neighbour: ${listOfNeighbours[i][1] ? listOfNeighbours[i][1] : "None"}`);
+
+// for (let i = 0; i < listOfNeighbours.length; i++)
+//     for (let y = 0; y < listOfNeighbours[i].length; y++)
+//         console.log(`Neighbour: ${listOfNeighbours[i][y]}`);
