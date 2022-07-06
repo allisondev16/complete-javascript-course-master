@@ -242,7 +242,7 @@ const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
 
 // 4.
 const total = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]]
-console.log(total);
+console.log('total', total);
 
 // LECTURE: Introduction to Objects
 // 1. Create an object called 'myCountry' for a country of your choice, containing 
@@ -510,6 +510,19 @@ const tips2 = [];
 const total2 = [];
 
 for (let i = 0; i < bills2.length; i++) {
-    tips2.push(calcTip(bills2[i]));
-    total2.push(calcTip(bills2[i]) + bills2[i]);
+    const tips = calcTip(bills2[i]);
+    tips2.push(tips);
+    total2.push(tips + bills2[i]);
 }
+
+console.log('total2', total2);
+
+const calcAverage = function (arr) {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+    }
+    return sum / arr.length;
+}
+
+console.log(calcAverage(total2));
