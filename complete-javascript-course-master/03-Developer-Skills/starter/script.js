@@ -22,12 +22,21 @@ console.log();
 // § Data 2: [12, 5, -5, 0, 4]
 // GOOD LUCK �
 
-// 1.
 // print every element of the array
 // number of days per element
+// print together
 
 const printForecast = arr => {
+  const newArray = [];
   for (let i = 0; i < arr.length; i++) {
-    console.log(arr[1]);
+    // console.log(`... ${arr[i]}° in ${i + 1} days `);
+    newArray.push(`... ${arr[i]}° in ${i + 1} days `);
   }
+  console.log(newArray.join(''));
 };
+
+const data1 = [17, 21, 23];
+const data2 = [12, 5, -5, 0, 4];
+
+printForecast(data1);
+printForecast(data2);
