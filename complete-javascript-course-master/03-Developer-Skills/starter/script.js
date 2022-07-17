@@ -26,13 +26,23 @@ console.log();
 // number of days per element
 // print together
 
+// const printForecast = arr => {
+//   const newArray = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     // console.log(`... ${arr[i]}° in ${i + 1} days `);
+//     newArray.push(`... ${arr[i]}° in ${i + 1} days `);
+//   }
+//   console.log(newArray.join(''));
+// };
+
+// other solution
+
 const printForecast = arr => {
-  const newArray = [];
+  let str = '';
   for (let i = 0; i < arr.length; i++) {
-    // console.log(`... ${arr[i]}° in ${i + 1} days `);
-    newArray.push(`... ${arr[i]}° in ${i + 1} days `);
+    str += `${arr[i]}°C in ${i + 1} days ... `;
   }
-  console.log(newArray.join(''));
+  console.log('... ' + str);
 };
 
 const data1 = [17, 21, 23];
