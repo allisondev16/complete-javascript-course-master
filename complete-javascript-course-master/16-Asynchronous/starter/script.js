@@ -63,7 +63,7 @@ const getJSON = (url, errorMessage = 'Something went wrong.') => {
     return data.json();
   });
 };
-
+/*
 const whereAmI = (lat, lng) => {
   getJSON(`https://geocode.xyz/${lat},${lng}?geoit=json`, 'Error in geocoding.')
     .then(res => {
@@ -85,6 +85,7 @@ const whereAmI = (lat, lng) => {
 };
 
 const test = whereAmI(19.037, 72.873);
+*/
 
 ///////////////////////////////////////
 // Coding Challenge #2
@@ -131,6 +132,7 @@ const createImage = imgPath => {
   });
 };
 
+/*
 let imgElement;
 createImage(`img/img-1.jpg`)
   .then(res => {
@@ -140,3 +142,70 @@ createImage(`img/img-1.jpg`)
   })
   .then(() => console.log(imgElement))
   .catch(err => console.error(err));
+*/
+
+// insert codes from work laptop
+
+///////////////////////////////////////
+// Returning Values from Async Functions
+const getPosition = function () {
+  return new Promise(function (resolve, reject) {
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+};
+
+const whereAmI = async function () {
+  try {
+    // Geolocation
+    const pos = await getPosition();
+    const { latitude: lat, longitude: lng } = pos.coords;
+
+    // Reverse geocoding
+    const resGeo = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
+    if (!resGeo.ok) throw new Error('Problem getting location data');
+    const dataGeo = await resGeo.json();
+
+    // Country data
+    const res = await fetch(
+      `https://countries-api-836d.onrender.com/countries/name/${dataGeo.country}`
+    );
+    if (!res.ok) throw new Error('Problem getting country');
+    const data = await res.json();
+    renderCountry(data[0]);
+
+    return `You are in ${dataGeo.city}, ${dataGeo.country}`;
+  } catch (err) {
+    console.error(`${err} 💥`);
+    renderError(`💥 ${err.message}`);
+    throw err;
+  }
+};
+
+//console.log('1: Will get location');
+// const city = whereAmI();
+// console.log(city);
+
+// whereAmI()
+//   .then(city => console.log(`2: ${city}`))
+//   .catch(err => console.error(`2: ${err.message} 💥`))
+//   .finally(() => console.log('3: Finished getting location'));
+
+(async function () {
+  try {
+    const myLocation = await whereAmI();
+    console.log(`2: ${myLocation}`);
+  } catch (err) {
+    console.error(`2: ${err.message} 💥`);
+  }
+  console.log('3: Finished getting location');
+})();
+
+const testF = function () {
+  return new Promise(resolve => {
+    resolve('hello');
+    resolve('hi');
+  });
+};
+
+testF().then(res => console.log(res));
+Promise.all(testF());
