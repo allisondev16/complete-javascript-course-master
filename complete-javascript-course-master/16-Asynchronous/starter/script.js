@@ -121,30 +121,43 @@ const wait = seconds => {
 const imgContainer = document.querySelector('.images');
 
 const createImage = imgPath => {
-  return new Promise(resolve => {
+  return new Promise((resolve, reject) => {
     const image = document.createElement('img');
     image.src = imgPath;
+    console.log(image.src)
+
     image.onload = function () {
       console.log('The image has loaded.');
       imgContainer.append(image);
       resolve(image);
-    };
+    }
+   
+    image.onerror = function () {
+      reject(new Error('Invalid image file.'))
+    }
   });
 };
 
-/*
-let imgElement;
-createImage(`img/img-1.jpg`)
-  .then(res => {
-    console.log(res);
-    imgElement = res;
-    return wait(2);
-  })
-  .then(() => console.log(imgElement))
-  .catch(err => console.error(err));
-*/
-
-// insert codes from work laptop
+// let imgElement;
+// createImage('img/img-3.jpg')
+//   .then(res => {
+//     console.log(res);
+//     imgElement = res;
+//     return wait(2);
+//   })
+//   .then(() => {
+//     imgElement.style.display = 'none'
+//     return createImage('img/img-2.jpg')
+//   })
+//   .then(res => {
+//     console.log(res);
+//     imgElement = res;
+//     return wait(2);
+//   })
+//   .then(() => {
+//     imgElement.style.display = 'none'
+//   })
+//   .catch(err => console.error(err));
 
 ///////////////////////////////////////
 // Returning Values from Async Functions
@@ -153,7 +166,7 @@ const getPosition = function () {
     navigator.geolocation.getCurrentPosition(resolve, reject);
   });
 };
-
+/*
 const whereAmI = async function () {
   try {
     // Geolocation
@@ -180,7 +193,7 @@ const whereAmI = async function () {
     throw err;
   }
 };
-
+*/
 //console.log('1: Will get location');
 // const city = whereAmI();
 // console.log(city);
@@ -189,7 +202,7 @@ const whereAmI = async function () {
 //   .then(city => console.log(`2: ${city}`))
 //   .catch(err => console.error(`2: ${err.message} 💥`))
 //   .finally(() => console.log('3: Finished getting location'));
-
+/*
 (async function () {
   try {
     const myLocation = await whereAmI();
@@ -208,4 +221,62 @@ const testF = function () {
 };
 
 testF().then(res => console.log(res));
-Promise.all(testF());
+Promise.all([testF()]).then(res => console.log(res));
+*/
+///////////////////////////////////////
+// Coding Challenge #3
+
+/* 
+PART 1
+Write an async function 'loadNPause' that recreates Coding Challenge #2, this time using async/await (only the part where the promise is consumed). Compare the two versions, think about the big differences, and see which one you like more.
+Don't forget to test the error handler, and to set the network speed to 'Fast 3G' in the dev tools Network tab.
+
+PART 2
+1. Create an async function 'loadAll' that receives an array of image paths 'imgArr';
+2. Use .map to loop over the array, to load all the images with the 'createImage' function (call the resulting array 'imgs')
+3. Check out the 'imgs' array in the console! Is it like you expected?
+4. Use a promise combinator function to actually get the images from the array 😉
+5. Add the 'paralell' class to all the images (it has some CSS styles).
+
+TEST DATA: ['img/img-1.jpg', 'img/img-2.jpg', 'img/img-3.jpg']. To test, turn off the 'loadNPause' function.
+
+GOOD LUCK 😀
+*/
+
+// Part 1
+// let imgElement;
+// createImage('img/img-3.jpg')
+//   .then(res => {
+//     console.log(res);
+//     imgElement = res;
+//     return wait(2);
+//   })
+//   .then(() => {
+//     imgElement.style.display = 'none'
+//     return createImage('img/img-2.jpg')
+//   })
+//   .then(res => {
+//     console.log(res);
+//     imgElement = res;
+//     return wait(2);
+//   })
+//   .then(() => {
+//     imgElement.style.display = 'none'
+//   })
+//   .catch(err => console.error(err));
+
+const loadNPause = async function () {
+  try {
+    let imgElement = await createImage('img/img-3.jpg')
+    await wait(2)
+    imgElement.style.display = 'none'
+    imgElement = await createImage('img/img-2.jpg')
+    await wait(2)
+    imgElement.style.display = 'none'
+    console.log("Finished")
+  } catch (error) {
+    console.error(err)
+  }
+}
+
+loadNPause()
