@@ -264,7 +264,7 @@ GOOD LUCK 😀
 //     imgElement.style.display = 'none'
 //   })
 //   .catch(err => console.error(err));
-
+/*
 const loadNPause = async function () {
   try {
     let imgElement = await createImage('img/img-3.jpg')
@@ -279,12 +279,16 @@ const loadNPause = async function () {
   }
 }
 
-loadNPause()
 
+loadNPause()
+*/
 //PART 2
 const loadAll = async function(imgArr) {
-  const imgs = imgArr.map(async img => await createImage(img))
+  const imgs = imgArr.map(img => createImage(img))
   console.log(imgs)
+  const res = await Promise.all(imgs)
+  console.log(res);
+  res.forEach(img=>img.classList.add("parallel"))
 }
 
 const imgArr = ['img/img-1.jpg', 'img/img-2.jpg', 'img/img-3.jpg']
